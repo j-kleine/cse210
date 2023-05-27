@@ -1,3 +1,7 @@
+// In order to exceed the requirements, I added multiple scriptures that are handled
+// by the reference class and the scripture class to be added to an array. From the array,
+// the program chooses a random scripture to then execute the program with.
+
 using System;
 
 class Program
