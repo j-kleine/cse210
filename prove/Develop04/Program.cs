@@ -42,18 +42,18 @@ class Program
                 reflectingActivity.GetDone();
             }
 
-            // else if (menuOption == 3) //Listing Activity
-            // {
-            //     Console.Clear();
-            //     //Console.WriteLine("Welcome to the Listing Activity.");
-            //     ListingActivity listingActivity = new ListingActivity("Listing", 0);
-            //     listingActivity.GetActivityName();
-            //     listingActivity.GetActivityDescription();
-            //     seconds = listingActivity.GetDuration();
-            //     listingActivity.GetReady();
-            //     listingActivity.ListItems(seconds);
-            //     listingActivity.GetDone();
-            // }
+            else if (menuOption == 3) //Listing Activity
+            {
+                Console.Clear();
+                //Console.WriteLine("Welcome to the Listing Activity.");
+                ListingActivity listingActivity = new ListingActivity("Listing", 0);
+                listingActivity.GetActivityName();
+                listingActivity.GetActivityDescription();
+                seconds = listingActivity.GetDuration();
+                listingActivity.GetReady();
+                listingActivity.Listing(seconds);
+                listingActivity.GetDone();
+            }
         }
         
         if (menuOption == 4) //Quit
