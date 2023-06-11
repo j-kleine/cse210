@@ -41,11 +41,11 @@ public class Activity
         string[] spinner = { "|", "/", "-", "\\" };
         int index = 0;
 
-        for (int i = 0; i <= 30; i++)
+        for (int i = 0; i <= 20; i++)
         {
             Console.Write($"\r{spinner[index]}");
             index = (index + 1) % spinner.Length;
-            Thread.Sleep(75);
+            Thread.Sleep(100);
         }
         Console.Write($"\r ");
     }
@@ -59,22 +59,22 @@ public class Activity
         Console.WriteLine("\n");
         Console.WriteLine("Well Done!");
 
-        for (int i = 0; i <= 30; i++)
+        for (int i = 0; i <= 20; i++)
         {
             Console.Write($"\r{spinner[index]}");
             index = (index + 1) % spinner.Length;
-            Thread.Sleep(75);
+            Thread.Sleep(100);
         }
         Console.Write($"\r");
         Console.WriteLine();
 
         Console.WriteLine($"You have completed {_duration} seconds of the {_name} activity.");
 
-        for (int i = 0; i <= 30; i++)
+        for (int i = 0; i <= 20; i++)
         {
             Console.Write($"\r{spinner[index]}");
             index = (index + 1) % spinner.Length;
-            Thread.Sleep(75);
+            Thread.Sleep(100);
         }
         Console.Clear();
     }
