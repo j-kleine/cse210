@@ -16,7 +16,7 @@ public class ReflectingActivity : Activity
 
     public void Reflecting(int seconds)
     {
-        float secondsTimer = 0;
+        int secondsTimer = 0;
 
         List<string> prompts = new List<string>
         {
