@@ -16,6 +16,8 @@ public class ReflectingActivity : Activity
 
     public void Reflecting(int seconds)
     {
+        float secondsTimer = 0;
+
         List<string> prompts = new List<string>
         {
             "Think of a time when you stood up for someone else.",
@@ -52,20 +54,22 @@ public class ReflectingActivity : Activity
         CountDown();
         Console.Clear();
 
-        for (int i = 0; i < seconds; i++)
+        while (secondsTimer < seconds)
         {
-            int questionIndex = random.Next(questions.Count);
-            Console.WriteLine($"> {questions[questionIndex]}");
-            Thread.Sleep(1000);
-        //     Console.WriteLine("Your response: ");
-            
-        //     Console.WriteLine();
-        //     Console.WriteLine("Thank you for reflecting.");
-        //     Console.WriteLine("Press any key to continue...");
-        //     Console.ReadKey();
-        //     Console.Clear();
-
-        //     promptIndex = random.Next(prompts.Count);
+            for (int i = 0; i < seconds;)
+            {
+                int questionIndex = random.Next(questions.Count);
+                Console.Write($"> {questions[questionIndex]} -------------------- ");
+                for (float j = 0; j < 20; j++)
+                {
+                    Console.Write("\b\b ");
+                    Thread.Sleep(500);
+                }
+                //Thread.Sleep(10000); // DURCH SPINNER ERSETZEN
+                secondsTimer += 10;
+                i += 10;
+                Console.WriteLine();
+            }
         }
     }
 }
