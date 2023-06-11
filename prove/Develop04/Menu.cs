@@ -18,10 +18,7 @@ Select a choice from the menu: ";
         Console.Write(_menu);
 
         _userInput = Console.ReadLine();
-        // if (_userInput == "1")
-        // {
-
-        // }
+        
         _userChoice = Int32.Parse(_userInput);
 
         return _userChoice;
