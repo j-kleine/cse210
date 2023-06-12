@@ -16,7 +16,7 @@ public class ListingActivity : Activity
 
     public void Listing(int seconds)
     {
-        List<string> prompts = new List<string>
+        List<string> _prompts = new List<string>
         {
             "Who are people that you appreciate?",
             "What are personal strengths of yours?",
@@ -25,13 +25,13 @@ public class ListingActivity : Activity
             "Who are some of your personal heroes?"
         };
 
-        Random random = new Random();
-        int promptIndex = random.Next(prompts.Count);
+        Random _random = new Random();
+        int _promptIndex = _random.Next(_prompts.Count);
 
         Console.WriteLine();
         Console.WriteLine("List as many responses as you can to the following prompt:");
         Console.WriteLine();
-        Console.WriteLine($" --- {prompts[promptIndex]} --- ");
+        Console.WriteLine($" --- {_prompts[_promptIndex]} --- ");
         CountDown();
         Console.WriteLine();
         RunStopwatch(seconds);

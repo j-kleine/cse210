@@ -16,9 +16,9 @@ public class ReflectingActivity : Activity
 
     public void Reflecting(int seconds)
     {
-        int secondsTimer = 0;
+        int _secondsTimer = 0;
 
-        List<string> prompts = new List<string>
+        List<string> _prompts = new List<string>
         {
             "Think of a time when you stood up for someone else.",
             "Think of a time you did something really difficult.",
@@ -26,7 +26,7 @@ public class ReflectingActivity : Activity
             "Think of a time when you did something truly selfless."
         };
 
-        List<string> questions = new List<string>
+        List<string> _questions = new List<string>
         {
             "Why was this experience meaningful to you?",
             "Have you ever done anything like this before?",
@@ -39,13 +39,13 @@ public class ReflectingActivity : Activity
             "How can you keep this experience in mind in the future?"
         };
 
-        Random random = new Random();
-        int promptIndex = random.Next(prompts.Count);
+        Random _random = new Random();
+        int _promptIndex = _random.Next(_prompts.Count);
 
         Console.WriteLine();
         Console.WriteLine("Consider the following prompt:");
         Console.WriteLine();
-        Console.WriteLine($" --- {prompts[promptIndex]} --- ");
+        Console.WriteLine($" --- {_prompts[_promptIndex]} --- ");
         Console.WriteLine();
         Console.WriteLine("When you have something in mind, press enter to continue.");
         Console.ReadKey();
@@ -54,19 +54,19 @@ public class ReflectingActivity : Activity
         CountDown();
         Console.Clear();
 
-        while (secondsTimer < seconds)
+        while (_secondsTimer < seconds)
         {
             for (int i = 0; i < seconds;)
             {
-                int questionIndex = random.Next(questions.Count);
-                Console.Write($"> {questions[questionIndex]} -------------------- ");
+                int _questionIndex = _random.Next(_questions.Count);
+                Console.Write($"> {_questions[_questionIndex]} -------------------- ");
                 for (float j = 0; j < 20; j++)
                 {
                     Console.Write("\b\b ");
                     Thread.Sleep(500);
                 }
                 //Thread.Sleep(10000); // DURCH SPINNER ERSETZEN
-                secondsTimer += 10;
+                _secondsTimer += 10;
                 i += 10;
                 Console.WriteLine();
             }

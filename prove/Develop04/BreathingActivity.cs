@@ -19,8 +19,8 @@ public class BreathingActivity : Activity
 
     public void Breathing(int seconds)
     {
-        int secondsTimer = 0;
-        while (secondsTimer < seconds)
+        int _secondsTimer = 0;
+        while (_secondsTimer < seconds)
         {
             Console.WriteLine();
             Console.WriteLine();
@@ -28,7 +28,7 @@ public class BreathingActivity : Activity
             {
                 Console.Write($"\r{_messageIn}{i}");
                 Thread.Sleep(1000);
-                secondsTimer += 1;
+                _secondsTimer += 1;
             }
             Console.Write($"\r{_messageIn} ");
             Console.WriteLine();
@@ -37,7 +37,7 @@ public class BreathingActivity : Activity
             {
                 Console.Write($"\r{_messageOut}{i}");
                 Thread.Sleep(1000);
-                secondsTimer += 1;
+                _secondsTimer += 1;
             }
             Console.Write($"\r{_messageOut} ");
         }

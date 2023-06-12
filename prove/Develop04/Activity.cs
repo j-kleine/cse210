@@ -16,10 +16,10 @@ public class Activity
     {
          Console.WriteLine($"Welcome to the {_name} Activity\n");
     }
-    // public void SetActivityName(string name)
-    // {
-    //     _name = name;
-    // }
+    public void SetActivityName(string name)
+    {
+        _name = name;
+    }
 
     public int GetDuration()
     {
@@ -34,17 +34,18 @@ public class Activity
         _duration = duration;
     }
 
+    string[] _spinner = { "|", "/", "-", "\\" };
+    int _index = 0;
+
     public void GetReady()
     {
         Console.Clear();
         Console.WriteLine("Get ready...");
-        string[] spinner = { "|", "/", "-", "\\" };
-        int index = 0;
-
+        
         for (int i = 0; i <= 20; i++)
         {
-            Console.Write($"\r{spinner[index]}");
-            index = (index + 1) % spinner.Length;
+            Console.Write($"\r{_spinner[_index]}");
+            _index = (_index + 1) % _spinner.Length;
             Thread.Sleep(100);
         }
         Console.Write($"\r ");
@@ -52,17 +53,13 @@ public class Activity
 
     public void GetDone()
     {
-        string[] spinner = { "|", "/", "-", "\\" };
-        int index = 0;
-
-        
         Console.WriteLine("\n");
         Console.WriteLine("Well Done!");
 
         for (int i = 0; i <= 20; i++)
         {
-            Console.Write($"\r{spinner[index]}");
-            index = (index + 1) % spinner.Length;
+            Console.Write($"\r{_spinner[_index]}");
+            _index = (_index + 1) % _spinner.Length;
             Thread.Sleep(100);
         }
         Console.Write($"\r");
@@ -72,8 +69,8 @@ public class Activity
 
         for (int i = 0; i <= 20; i++)
         {
-            Console.Write($"\r{spinner[index]}");
-            index = (index + 1) % spinner.Length;
+            Console.Write($"\r{_spinner[_index]}");
+            _index = (_index + 1) % _spinner.Length;
             Thread.Sleep(100);
         }
         Console.Clear();
@@ -92,10 +89,10 @@ public class Activity
     public void RunStopwatch(int seconds)
     {
         int _responseCounter = 0;
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(seconds);
+        DateTime _startTime = DateTime.Now;
+        DateTime _endTime = _startTime.AddSeconds(seconds);
 
-        while (DateTime.Now < endTime)
+        while (DateTime.Now < _endTime)
         {
             Console.Write("> ");
             Console.ReadLine();
