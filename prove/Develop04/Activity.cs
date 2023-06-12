@@ -86,5 +86,23 @@ public class Activity
             Console.Write($"\r{_messageBegin} {i}");
             Thread.Sleep(1000);
         }
+        Console.Write($"\r{_messageBegin} ");
+    }
+
+    public void RunStopwatch(int seconds)
+    {
+        int _responseCounter = 0;
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(seconds);
+
+        while (DateTime.Now < endTime)
+        {
+            Console.Write("> ");
+            Console.ReadLine();
+            _responseCounter = (_responseCounter + 1);
+        }
+
+        Console.WriteLine($"You listed {_responseCounter} items!");
+        Thread.Sleep(1000);
     }
 }
