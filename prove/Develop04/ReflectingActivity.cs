@@ -45,7 +45,7 @@ public class ReflectingActivity : Activity
         Console.WriteLine();
         Console.WriteLine("Consider the following prompt:");
         Console.WriteLine();
-        Console.WriteLine($" ---{prompts[promptIndex]}--- ");
+        Console.WriteLine($" --- {prompts[promptIndex]} --- ");
         Console.WriteLine();
         Console.WriteLine("When you have something in mind, press enter to continue.");
         Console.ReadKey();
