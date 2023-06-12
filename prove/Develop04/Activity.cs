@@ -26,6 +26,7 @@ public class Activity
         Console.Write("\nHow long, in seconds, would you like for your session? ");
         int durationInput = Int32.Parse(Console.ReadLine());
         _duration = durationInput;
+        Console.Clear();
 
         return durationInput;
     }
@@ -39,7 +40,7 @@ public class Activity
 
     public void GetReady()
     {
-        Console.Clear();
+        //Console.Clear();
         Console.WriteLine("Get ready...");
         
         for (int i = 0; i <= 20; i++)
@@ -62,7 +63,7 @@ public class Activity
             _index = (_index + 1) % _spinner.Length;
             Thread.Sleep(100);
         }
-        Console.Write($"\r");
+        Console.Write($"\r ");
         Console.WriteLine();
 
         Console.WriteLine($"You have completed {_duration} seconds of the {_name} activity.");

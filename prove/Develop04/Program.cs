@@ -1,3 +1,6 @@
+// To exceed requirements, I added different animations to the BreathingActivity, with different speeds for breathing IN and OUT.
+// I also added an animation to the ReflectingActivity.
+
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -24,6 +27,7 @@ class Program
                 breathingActivity.GetActivityName();
                 breathingActivity.GetActivityDescription();
                 seconds = breathingActivity.GetDuration();
+                breathingActivity.GetBreathingPattern();
                 breathingActivity.GetReady();
                 breathingActivity.Breathing(seconds);
                 breathingActivity.GetDone();
@@ -59,7 +63,9 @@ class Program
         if (menuOption == 4) //Quit
         {
             Console.Clear();
-            Console.WriteLine("Quit");
+            Console.WriteLine("The program has ended.");
+            Thread.Sleep(1000);
+            Console.Clear();
         }        
     }
 }
