@@ -31,7 +31,17 @@ class Program
                 {
                     if (goalMenuOption == 1) //Create Simple Goal
                     {
+                        string goalType = "Simple Goal";
+                        Console.WriteLine("What is the name of your goal? > ");
+                        string name = Console.ReadLine();
+                        Console.WriteLine("What is a short description of your goal? > ");
+                        string description = Console.ReadLine();
+                        Console.Write("What is the amount of points associated with this goal? > ");
+                        int points = int.Parse(Console.ReadLine());
 
+                        SimpleGoal simpleGoal = new SimpleGoal(goalType, name, description, points);
+                        goals.AddGoal(simpleGoal);
+                        goalMenuOption = 4;
                     }
 
                     else if (goalMenuOption == 2) //Create Eternal Goal
@@ -60,17 +70,19 @@ class Program
                 }
             }
 
-            else if (menuOption == 2) //List Goal
+            else if (menuOption == 2) //List Goal(s)
+            {
+                Console.Clear();
+                Console.WriteLine($"You currently have {goals.GetTotalPoints()} points!");
+                goals.ListGoals();
+            }
+
+            else if (menuOption == 3) //Save Goal(s)
             {
 
             }
 
-            else if (menuOption == 3) //Save Goals
-            {
-
-            }
-
-            else if (menuOption == 4) //Load Goals
+            else if (menuOption == 4) //Load Goal(s)
             {
 
             }
@@ -92,6 +104,7 @@ class Program
             Thread.Sleep(500);
             Console.WriteLine($"\rQuitting Program...");
             Thread.Sleep(500);
+            Console.Clear();
             Console.WriteLine("The program has ended.");
             Thread.Sleep(1000);
             Console.Clear();
