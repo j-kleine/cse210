@@ -32,9 +32,9 @@ class Program
                     if (goalMenuOption == 1) //Create Simple Goal
                     {
                         string goalType = "Simple Goal";
-                        Console.WriteLine("What is the name of your goal? > ");
+                        Console.Write("What is the name of your goal? > ");
                         string name = Console.ReadLine();
-                        Console.WriteLine("What is a short description of your goal? > ");
+                        Console.Write("What is a short description of your goal? > ");
                         string description = Console.ReadLine();
                         Console.Write("What is the amount of points associated with this goal? > ");
                         int points = int.Parse(Console.ReadLine());
