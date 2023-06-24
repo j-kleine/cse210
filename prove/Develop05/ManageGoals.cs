@@ -45,8 +45,8 @@ public class ManageGoals
     {
         if (_goals.Count() > 0)
         {
-            Console.WriteLine("\nYour Goals are:");
-
+            Console.WriteLine($"\nYou have {GetTotalPoints()} points!");
+            Console.WriteLine("\nThe Goals are:");
             int index = 1;
             // Loop though goals list
             foreach (Goal goal in _goals)
@@ -54,26 +54,24 @@ public class ManageGoals
                 goal.ListGoal(index);
                 index = index + 1;
             }
+            Console.WriteLine();
         }
         else
         {
-            Console.WriteLine("\nYou currently have no goals!");
+            Console.WriteLine("\nYou currently have no goals saved!");
         }
     }
 
     public void RecordGoalEvent()
     {
         ListGoals();
-
-        Console.Write("\nWhich goal did you accomplished?  ");
+        Console.Write("\nWhich goal did you accomplish?  ");
         int select = int.Parse(Console.ReadLine())-1;
-
         int goalPoints = GetGoalsList()[select].GetPoints();
         AddPoints(goalPoints);
-
+        //AddBonus(goalPoints);
         GetGoalsList()[select].RecordGoalEvent(_goals);
-
-        Console.WriteLine($"\n*** You have {GetTotalPoints()} points! ***\n");
+        Console.WriteLine($"You have {GetTotalPoints()} points!");
     }
 
     public void SaveGoals()
@@ -96,7 +94,7 @@ public class ManageGoals
 
     public void LoadGoals()
     {
-        Console.Write("\nWhat is the name of your goal file?  ");
+        Console.Write("What is the name of your goal file?  ");
         string userInput = Console.ReadLine();
         string userFileName = userInput + ".txt";
 
@@ -107,13 +105,13 @@ public class ManageGoals
             // read the first line of text file for total stored points
             int totalPoints = int.Parse(readText[0]);
             SetTotalPoints(totalPoints);
-            // skip the first line of text file to read to goals
+            // skip the first line of text file to read the goals
             readText = readText.Skip(1).ToArray();
+
             // loop though text file for goals
             foreach (string line in readText)
             {
                 string[] entries = line.Split("; ");
-
                 string type = entries[0];
                 string name = entries[1];
                 string description = entries[2];
@@ -125,7 +123,7 @@ public class ManageGoals
                     SimpleGoal simpleGoal = new SimpleGoal(type, name, description, points, status);
                     AddGoal(simpleGoal);
                 }
-
+                
                 else if (entries[0] == "Eternal Goal:")
                 {
                     EternalGoal eternalGoal = new EternalGoal(type, name, description, points, status);
@@ -141,6 +139,10 @@ public class ManageGoals
                     AddGoal(checklistGoal);
                 }
             }
+        }
+        else
+        {
+            Console.WriteLine($"!!! The file <{userFileName}> does not exist. !!!\n");
         }
     }
 }
