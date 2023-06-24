@@ -49,19 +49,19 @@ public class ChecklistGoal : Goal
         return _bonusPoints;
     }
 
-    public Boolean GoalFinished()
+    public bool GoalFinished()
     {
         return _status;
     }
 
     public override void ListGoal(int i)
     {
-        if (GoalFinished() == false)
+        if (!GoalFinished())
         {
             Console.WriteLine($"{i}. [ ] {GetName()} ({GetDescription()}) -- Currently Completed: {GetCount()}/{GetNumberTimes()}");
         }
 
-        else if (GoalFinished() == true)
+        else if (GoalFinished())
         {
             Console.WriteLine($"{i}. [X] {GetName()} ({GetDescription()}) -- Currently Completed: {GetCount()}/{GetNumberTimes()}");
         }
