@@ -26,7 +26,7 @@ public class ManageGoals
         _totalPoints += points;
     }
 
-    public void AddBonus(int bonusPoints)
+    public void AddBonusPoints(int bonusPoints)
     {
         _totalPoints += bonusPoints;
     }
@@ -43,9 +43,10 @@ public class ManageGoals
 
     public void ListGoals()
     {
-        if (_goals.Count() > 0)
+        int totalPoints = GetTotalPoints();
+        if (_goals.Count > 0)
         {
-            Console.WriteLine($"\nYou have {GetTotalPoints()} points!");
+            Console.WriteLine($"\nYou have {totalPoints} points!");
             Console.WriteLine("\nThe Goals are:");
             int index = 1;
             // Loop though goals list
@@ -68,8 +69,10 @@ public class ManageGoals
         Console.Write("\nWhich goal did you accomplish?  ");
         int select = int.Parse(Console.ReadLine())-1;
         int goalPoints = GetGoalsList()[select].GetPoints();
+        //TEST
+        int bonusPoints = GetGoalsList()[select].GetBonusPoints();
         AddPoints(goalPoints);
-        //AddBonus(goalPoints);
+        AddBonusPoints(bonusPoints);
         GetGoalsList()[select].RecordGoalEvent(_goals);
         Console.WriteLine($"You have {GetTotalPoints()} points!");
     }
@@ -116,26 +119,26 @@ public class ManageGoals
                 string name = entries[1];
                 string description = entries[2];
                 int points = int.Parse(entries[3]);
-                bool status = Convert.ToBoolean(entries[4]);
+                int bonusPoints = int.Parse(entries[4]);
+                bool status = Convert.ToBoolean(entries[5]);
 
                 if (entries[0] == "Simple Goal:")
                 {
-                    SimpleGoal simpleGoal = new SimpleGoal(type, name, description, points, status);
+                    SimpleGoal simpleGoal = new SimpleGoal(type, name, description, points, 0, status);
                     AddGoal(simpleGoal);
                 }
-                
+
                 else if (entries[0] == "Eternal Goal:")
                 {
-                    EternalGoal eternalGoal = new EternalGoal(type, name, description, points, status);
+                    EternalGoal eternalGoal = new EternalGoal(type, name, description, points, 0, status);
                     AddGoal(eternalGoal);
                 }
                 
                 else if (entries[0] == "Checklist Goal:")
                 {
-                    int numberTimes = int.Parse(entries[5]);
-                    int bonusPoints = int.Parse(entries[6]);
+                    int numberTimes = int.Parse(entries[6]);
                     int counter = int.Parse(entries[7]);
-                    ChecklistGoal checklistGoal = new ChecklistGoal(type, name, description, points, status, numberTimes, bonusPoints, counter);
+                    ChecklistGoal checklistGoal = new ChecklistGoal(type, name, description, points, bonusPoints, status, numberTimes, counter);
                     AddGoal(checklistGoal);
                 }
             }
