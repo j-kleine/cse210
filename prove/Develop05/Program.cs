@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using System.Threading;
+
 
 class Program
 {
@@ -46,12 +48,37 @@ class Program
 
                     else if (goalMenuOption == 2) //Create Eternal Goal
                     {
+                        string goalType = "Eternal Goal";
+                        Console.Write("What is the name of your goal? > ");
+                        string name = Console.ReadLine();
+                        Console.Write("What is a short description of your goal? > ");
+                        string description = Console.ReadLine();
+                        Console.Write("What is the amount of points associated with this goal? > ");
+                        int points = int.Parse(Console.ReadLine());
 
+                        EternalGoal eternalGoal = new EternalGoal(goalType, name, description, points);
+                        goals.AddGoal(eternalGoal);
+                        goalMenuOption = 4;
                     }
 
                     else if (goalMenuOption == 3) //Create Checklist Goal
                     {
+                        string goalType = "Checklist Goal";
+                        Console.Write("What is the name of your goal? > ");
+                        string name = Console.ReadLine();
+                        Console.Write("What is a short description of your goal? > ");
+                        string description = Console.ReadLine();
+                        Console.Write("What is the amount of points associated with this goal? > ");
+                        int points = int.Parse(Console.ReadLine());
+                        Console.Write("How many times does this goal need to be accomplished for a bonus? > ");
+                        int numberTimes = int.Parse(Console.ReadLine());
+                        Console.Write("What is the bonus for accomplishing it that many times? > ");
+                        int bonusPoints = int.Parse(Console.ReadLine());
+                        int count = 0;
 
+                        ChecklistGoal checklistGoal = new ChecklistGoal(goalType, name, description, points, numberTimes, bonusPoints, count);
+                        goals.AddGoal(checklistGoal);
+                        goalMenuOption = 4;
                     }
                 }
 
@@ -73,23 +100,26 @@ class Program
             else if (menuOption == 2) //List Goal(s)
             {
                 Console.Clear();
-                Console.WriteLine($"You currently have {goals.GetTotalPoints()} points!");
                 goals.ListGoals();
             }
 
             else if (menuOption == 3) //Save Goal(s)
             {
-
+                Console.Clear();
+                goals.SaveGoals();
             }
 
             else if (menuOption == 4) //Load Goal(s)
             {
-
+                Console.Clear();
+                goals.LoadGoals();
+                goals.ListGoals();
             }
 
             else if (menuOption == 5) //Record Event
             {
-
+                Console.Clear();
+                goals.RecordGoalEvent();
             }
         }
 
