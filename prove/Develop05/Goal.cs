@@ -6,13 +6,15 @@ public abstract class Goal
     private string _name;
     private string _description;
     private int _points;
+    private int _bonusPoints;
 
-    public Goal(string goalType, string name, string description, int points)
+    public Goal(string goalType, string name, string description, int points, int bonusPoints)
     {
         _goalType = goalType;
         _name = name;
         _description = description;
         _points = points;
+        _bonusPoints = bonusPoints;
     }
 
     public string GetGoalType()
@@ -33,6 +35,11 @@ public abstract class Goal
     public int GetPoints()
     {
         return _points;
+    }
+
+    public int GetBonusPoints()
+    {
+        return _bonusPoints;
     }
 
     public abstract void ListGoal(int i);

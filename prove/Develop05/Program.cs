@@ -41,7 +41,7 @@ class Program
                         Console.Write("What is the amount of points associated with this goal? > ");
                         int points = int.Parse(Console.ReadLine());
 
-                        SimpleGoal simpleGoal = new SimpleGoal(goalType, name, description, points);
+                        SimpleGoal simpleGoal = new SimpleGoal(goalType, name, description, points, 0);
                         goals.AddGoal(simpleGoal);
                         goalMenuOption = 4;
                     }
@@ -56,7 +56,7 @@ class Program
                         Console.Write("What is the amount of points associated with this goal? > ");
                         int points = int.Parse(Console.ReadLine());
 
-                        EternalGoal eternalGoal = new EternalGoal(goalType, name, description, points);
+                        EternalGoal eternalGoal = new EternalGoal(goalType, name, description, points, 0);
                         goals.AddGoal(eternalGoal);
                         goalMenuOption = 4;
                     }
@@ -76,7 +76,7 @@ class Program
                         int bonusPoints = int.Parse(Console.ReadLine());
                         int count = 0;
 
-                        ChecklistGoal checklistGoal = new ChecklistGoal(goalType, name, description, points, numberTimes, bonusPoints, count);
+                        ChecklistGoal checklistGoal = new ChecklistGoal(goalType, name, description, points, bonusPoints, numberTimes, count);
                         goals.AddGoal(checklistGoal);
                         goalMenuOption = 4;
                     }
