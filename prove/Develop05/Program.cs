@@ -22,6 +22,7 @@ class Program
 
         while (menuOption != 6)
         {
+            Console.WriteLine();
             menuOption = menu.UserChoice();
 
             if (menuOption == 1) //Create New Goal
@@ -113,7 +114,6 @@ class Program
             {
                 Console.Clear();
                 goals.LoadGoals();
-                goals.ListGoals();
             }
 
             else if (menuOption == 5) //Record Event

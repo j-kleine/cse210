@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 public class ManageGoals
@@ -59,6 +60,7 @@ public class ManageGoals
         }
         else
         {
+            Console.Clear();
             Console.WriteLine("\nYou currently have no goals saved!");
         }
     }
@@ -69,12 +71,20 @@ public class ManageGoals
         Console.Write("\nWhich goal did you accomplish?  ");
         int select = int.Parse(Console.ReadLine())-1;
         int goalPoints = GetGoalsList()[select].GetPoints();
-        //TEST
         int bonusPoints = GetGoalsList()[select].GetBonusPoints();
+
+        if (GetGoalsList()[select] is ChecklistGoal checklistGoal && (checklistGoal.GetCount() + 1) == checklistGoal.GetNumberTimes())
+        {
+            AddBonusPoints(bonusPoints);
+            checklistGoal.SetBonusPointsAdded(true);
+        }
+        
         AddPoints(goalPoints);
-        AddBonusPoints(bonusPoints);
+        
         GetGoalsList()[select].RecordGoalEvent(_goals);
-        Console.WriteLine($"You have {GetTotalPoints()} points!");
+
+        //Console.WriteLine($"You have {GetTotalPoints()} points!");
+        ListGoals();
     }
 
     public void SaveGoals()
@@ -93,6 +103,8 @@ public class ManageGoals
                 outputFile.WriteLine(goal.SaveGoal());
             }
         }
+        Console.Write($"File saved as <{userFileName}>");
+        Console.WriteLine();
     }
 
     public void LoadGoals()
@@ -142,6 +154,7 @@ public class ManageGoals
                     AddGoal(checklistGoal);
                 }
             }
+            ListGoals();
         }
         else
         {

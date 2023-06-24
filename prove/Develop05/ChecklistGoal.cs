@@ -46,6 +46,16 @@ public class ChecklistGoal : Goal
         return _status;
     }
 
+    public bool GetBonusPointsAdded()
+    {
+        return _bonusPointsAdded;
+    }
+
+    public void SetBonusPointsAdded(bool value)
+    {
+        _bonusPointsAdded = value;
+    }
+
     public override void ListGoal(int i)
     {
         if (!GoalFinished())
@@ -75,17 +85,17 @@ public class ChecklistGoal : Goal
         int points = GetPoints();
         int bonusPoints = GetBonusPoints();
 
-        if (_count == _numberTimes && !_bonusPointsAdded)
+        if (_count == _numberTimes)
         {
             _status = true;
             points = points + bonusPoints;
-            _bonusPointsAdded = true;
-
+            Console.Clear();
             Console.WriteLine($"Congratulations! You have earned {points} points!");
         }
 
         else
         {
+            Console.Clear();
             Console.WriteLine($"Congratulations! You have earned {points} points!");
         }
     }
