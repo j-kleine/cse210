@@ -11,8 +11,9 @@ class Program
 
         Console.Clear();
 
-        Console.WriteLine($"You have {goals.GetTotalPoints()} points.");
-        Console.WriteLine();
+        //Console.WriteLine($"You have {goals.GetTotalPoints()} points.");
+        Console.WriteLine("--- Welcome to your Eternal Quest ---");
+        //Console.WriteLine();
 
         Menu menu = new Menu();
         GoalMenu goalMenu = new GoalMenu();

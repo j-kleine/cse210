@@ -6,10 +6,12 @@ public class ManageGoals
 {
     private List<Goal> _goals = new List<Goal>();
     private int _totalPoints;
+    private Level _level;
 
     public ManageGoals()
     {
         _totalPoints = 0;
+        _level = new Level();
     }
 
     public void AddGoal(Goal goal)
@@ -25,6 +27,7 @@ public class ManageGoals
     public void AddPoints(int points)
     {
         _totalPoints += points;
+        _level.UpdateLevel(_totalPoints);
     }
 
     public void AddBonusPoints(int bonusPoints)
@@ -45,9 +48,12 @@ public class ManageGoals
     public void ListGoals()
     {
         int totalPoints = GetTotalPoints();
+        // _level.DisplayLevel(totalPoints);
+
         if (_goals.Count > 0)
         {
-            Console.WriteLine($"\nYou have {totalPoints} points!");
+            _level.DisplayLevel(totalPoints);
+            //Console.WriteLine($"\nYou have {totalPoints} points!");
             Console.WriteLine("\nThe Goals are:");
             int index = 1;
             // Loop though goals list
@@ -83,7 +89,6 @@ public class ManageGoals
         
         GetGoalsList()[select].RecordGoalEvent(_goals);
 
-        //Console.WriteLine($"You have {GetTotalPoints()} points!");
         ListGoals();
     }
 
