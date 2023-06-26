@@ -2,7 +2,8 @@
 // The amount of needed (experience) points scales with the level, and the current
 // level is displayed together with the current points the user has.
 // I also did a few minor changes to the UI and wording to try to make the program
-// more "intuitive"
+// more "intuitive" (eg automatically listing goals when goal file is loaded, updating
+// listed goals when event is recorded)
 
 using System;
 using System.IO;
