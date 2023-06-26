@@ -1,3 +1,9 @@
+// To show creativity and exceed requirements, I added a Level class to my program.
+// The amount of needed (experience) points scales with the level, and the current
+// level is displayed together with the current points the user has.
+// I also did a few minor changes to the UI and wording to try to make the program
+// more "intuitive"
+
 using System;
 using System.IO;
 using System.Threading;
