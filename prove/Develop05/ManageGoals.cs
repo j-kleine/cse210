@@ -48,12 +48,9 @@ public class ManageGoals
     public void ListGoals()
     {
         int totalPoints = GetTotalPoints();
-        // _level.DisplayLevel(totalPoints);
 
         if (_goals.Count > 0)
         {
-            _level.DisplayLevel(totalPoints);
-            //Console.WriteLine($"\nYou have {totalPoints} points!");
             Console.WriteLine("\nThe Goals are:");
             int index = 1;
             // Loop though goals list
@@ -63,38 +60,18 @@ public class ManageGoals
                 index = index + 1;
             }
             Console.WriteLine();
+            _level.DisplayLevel(totalPoints);
         }
         else
         {
             Console.Clear();
-            Console.WriteLine("\nYou currently have no goals saved!");
+            Console.WriteLine("You currently have no goals saved!");
         }
-    }
-
-    public void RecordGoalEvent()
-    {
-        ListGoals();
-        Console.Write("\nWhich goal did you accomplish?  ");
-        int select = int.Parse(Console.ReadLine())-1;
-        int goalPoints = GetGoalsList()[select].GetPoints();
-        int bonusPoints = GetGoalsList()[select].GetBonusPoints();
-
-        if (GetGoalsList()[select] is ChecklistGoal checklistGoal && (checklistGoal.GetCount() + 1) == checklistGoal.GetNumberTimes())
-        {
-            AddBonusPoints(bonusPoints);
-            checklistGoal.SetBonusPointsAdded(true);
-        }
-        
-        AddPoints(goalPoints);
-        
-        GetGoalsList()[select].RecordGoalEvent(_goals);
-
-        ListGoals();
     }
 
     public void SaveGoals()
     {
-        Console.Write("\nWhat is the name for this goal file?  ");
+        Console.Write("What is the filename for the goal file? (format .txt is automatically added) > ");
         string userInput = Console.ReadLine();
         string userFileName = userInput + ".txt";
 
@@ -114,7 +91,7 @@ public class ManageGoals
 
     public void LoadGoals()
     {
-        Console.Write("What is the name of your goal file?  ");
+        Console.Write("What is the filename of the goal file? (format .txt is automatically added) > ");
         string userInput = Console.ReadLine();
         string userFileName = userInput + ".txt";
 
@@ -128,7 +105,7 @@ public class ManageGoals
             // skip the first line of text file to read the goals
             readText = readText.Skip(1).ToArray();
 
-            // loop though text file for goals
+            // loop though text file to read goals
             foreach (string line in readText)
             {
                 string[] entries = line.Split("; ");
@@ -165,5 +142,26 @@ public class ManageGoals
         {
             Console.WriteLine($"!!! The file <{userFileName}> does not exist. !!!\n");
         }
+    }
+    
+    public void RecordGoalEvent()
+    {
+        ListGoals();
+        Console.Write("\nWhich goal did you accomplish?  ");
+        int select = int.Parse(Console.ReadLine())-1;
+        int goalPoints = GetGoalsList()[select].GetPoints();
+        int bonusPoints = GetGoalsList()[select].GetBonusPoints();
+
+        if (GetGoalsList()[select] is ChecklistGoal checklistGoal && (checklistGoal.GetCount() + 1) == checklistGoal.GetNumberTimes())
+        {
+            AddBonusPoints(bonusPoints);
+            checklistGoal.SetBonusPointsAdded(true);
+        }
+        
+        AddPoints(goalPoints);
+        
+        GetGoalsList()[select].RecordGoalEvent(_goals);
+
+        ListGoals();
     }
 }
