@@ -28,8 +28,8 @@ public class Level
         if (totalPoints >= _levelThreshold)
         {
             _currentLevel += 1;
-            float _levelThresholdPoints = (_currentLevel * 1000) * 1.1f;
-            _levelThreshold = (int)_levelThresholdPoints;
+            int _levelThresholdPoints = _levelThreshold + (_currentLevel * 100) + 1000;
+            _levelThreshold = _levelThresholdPoints;
         }
     }
 
@@ -37,6 +37,6 @@ public class Level
     {
         UpdateLevel(totalPoints);
         SetRequiredPoints(totalPoints);
-        Console.WriteLine($"You have {totalPoints} points and are Level {_currentLevel} ({_requiredPoints} points to reach Level {_currentLevel + 1})");
+        Console.WriteLine($"You have {totalPoints} points and are Level {_currentLevel}\n({_requiredPoints} points to reach Level {_currentLevel + 1})");
     }
 }
