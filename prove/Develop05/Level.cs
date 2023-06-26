@@ -18,10 +18,9 @@ public class Level
         return _currentLevel;
     }
 
-    public int GetRequiredPoints(int totalPoints)
+    public void SetRequiredPoints(int totalPoints)
     {
         _requiredPoints = _levelThreshold - totalPoints;
-        return _requiredPoints;
     }
 
     public void UpdateLevel(int totalPoints)
@@ -37,7 +36,7 @@ public class Level
     public void DisplayLevel(int totalPoints)
     {
         UpdateLevel(totalPoints);
-        GetRequiredPoints(totalPoints);
+        SetRequiredPoints(totalPoints);
         Console.WriteLine($"You have {totalPoints} points and are Level {_currentLevel} ({_requiredPoints} points to reach Level {_currentLevel + 1})");
     }
 }
