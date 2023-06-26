@@ -77,8 +77,8 @@ public class ManageGoals
 
         using (StreamWriter outputFile = new StreamWriter(userFileName))
         {
-            // Save Total Points
-            outputFile.WriteLine(GetTotalPoints());
+            // Save Total Points and Current Level
+            outputFile.WriteLine($"{GetTotalPoints()}; {_level.GetCurrentLevel()}");
             // Save goals list
             foreach (Goal goal in _goals)
             {
@@ -99,9 +99,13 @@ public class ManageGoals
         {
             string[] readText = File.ReadAllLines(userFileName);
 
-            // read the first line of text file for total stored points
-            int totalPoints = int.Parse(readText[0]);
+            // read the first line of text file for total stored points and current level
+            string[] pointsAndLevel = readText[0].Split("; ");
+            int totalPoints = int.Parse(pointsAndLevel[0]);
+            int currentLevel = int.Parse(pointsAndLevel[1]);
             SetTotalPoints(totalPoints);
+            _level.SetCurrentLevel(currentLevel);
+
             // skip the first line of text file to read the goals
             readText = readText.Skip(1).ToArray();
 

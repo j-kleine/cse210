@@ -23,6 +23,11 @@ public class Level
         _requiredPoints = _levelThreshold - totalPoints;
     }
 
+    public void SetCurrentLevel(int currentLevel)
+    {
+        _currentLevel = currentLevel;
+    }
+
     public void UpdateLevel(int totalPoints)
     {
         if (totalPoints >= _levelThreshold)
