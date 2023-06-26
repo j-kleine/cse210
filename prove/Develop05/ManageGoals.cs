@@ -102,7 +102,7 @@ public class ManageGoals
             // read the first line of text file for total stored points and current level
             string[] pointsAndLevel = readText[0].Split("; ");
             int totalPoints = int.Parse(pointsAndLevel[0]);
-            int currentLevel = int.Parse(pointsAndLevel[1]);
+            int currentLevel = (int.Parse(pointsAndLevel[1])) - 1;
             SetTotalPoints(totalPoints);
             _level.SetCurrentLevel(currentLevel);
 
