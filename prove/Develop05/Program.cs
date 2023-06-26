@@ -11,9 +11,7 @@ class Program
 
         Console.Clear();
 
-        //Console.WriteLine($"You have {goals.GetTotalPoints()} points.");
         Console.WriteLine("--- Welcome to your Eternal Quest ---");
-        //Console.WriteLine();
 
         Menu menu = new Menu();
         GoalMenu goalMenu = new GoalMenu();
@@ -23,6 +21,7 @@ class Program
 
         while (menuOption != 6)
         {
+            //Console.WriteLine($"You have {goals.GetTotalPoints()} points.");
             Console.WriteLine();
             menuOption = menu.UserChoice();
 
@@ -36,9 +35,9 @@ class Program
                     if (goalMenuOption == 1) //Create Simple Goal
                     {
                         string goalType = "Simple Goal";
-                        Console.Write("What is the name of your goal? > ");
+                        Console.Write($"What is the name of your {goalType}? > ");
                         string name = Console.ReadLine();
-                        Console.Write("What is a short description of your goal? > ");
+                        Console.Write("What is a short description of it? > ");
                         string description = Console.ReadLine();
                         Console.Write("What is the amount of points associated with this goal? > ");
                         int points = int.Parse(Console.ReadLine());
@@ -51,9 +50,9 @@ class Program
                     else if (goalMenuOption == 2) //Create Eternal Goal
                     {
                         string goalType = "Eternal Goal";
-                        Console.Write("What is the name of your goal? > ");
+                        Console.Write($"What is the name of your {goalType}? > ");
                         string name = Console.ReadLine();
-                        Console.Write("What is a short description of your goal? > ");
+                        Console.Write("What is a short description of it? > ");
                         string description = Console.ReadLine();
                         Console.Write("What is the amount of points associated with this goal? > ");
                         int points = int.Parse(Console.ReadLine());
@@ -66,9 +65,9 @@ class Program
                     else if (goalMenuOption == 3) //Create Checklist Goal
                     {
                         string goalType = "Checklist Goal";
-                        Console.Write("What is the name of your goal? > ");
+                        Console.Write($"What is the name of your {goalType}? > ");
                         string name = Console.ReadLine();
-                        Console.Write("What is a short description of your goal? > ");
+                        Console.Write("What is a short description of it? > ");
                         string description = Console.ReadLine();
                         Console.Write("What is the amount of points associated with this goal? > ");
                         int points = int.Parse(Console.ReadLine());
@@ -88,14 +87,15 @@ class Program
                 {
                     Console.Clear();
                     Console.Write("Going back to Main Menu");
-                    Thread.Sleep(500);
+                    Thread.Sleep(400);
                     Console.Write($"\rGoing back to Main Menu.");
-                    Thread.Sleep(500);
+                    Thread.Sleep(400);
                     Console.Write($"\rGoing back to Main Menu..");
-                    Thread.Sleep(500);
+                    Thread.Sleep(400);
                     Console.Write($"\rGoing back to Main Menu...");
-                    Thread.Sleep(1000);
+                    Thread.Sleep(500);
                     Console.Clear();
+                    Console.WriteLine("--- Welcome to your Eternal Quest ---");
                 }
             }
 
@@ -128,13 +128,13 @@ class Program
         {
             Console.Clear();
             Console.Write("Quitting Program");
-            Thread.Sleep(500);
+            Thread.Sleep(400);
             Console.Write($"\rQuitting Program.");
-            Thread.Sleep(500);
+            Thread.Sleep(400);
             Console.Write($"\rQuitting Program..");
-            Thread.Sleep(500);
+            Thread.Sleep(400);
             Console.WriteLine($"\rQuitting Program...");
-            Thread.Sleep(500);
+            Thread.Sleep(400);
             Console.Clear();
             Console.WriteLine("The program has ended.");
             Thread.Sleep(1000);

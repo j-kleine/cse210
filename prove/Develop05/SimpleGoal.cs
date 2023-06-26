@@ -46,6 +46,7 @@ public class SimpleGoal : Goal
     public override void RecordGoalEvent(List<Goal> goals)
     {
         _status = true;
+        Console.Clear();
         Console.WriteLine($"Congratulations! You have earned {GetPoints()} points!");
     }
 }

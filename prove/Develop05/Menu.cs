@@ -3,7 +3,7 @@ using System;
 public class Menu
 {
     private string _menu = 
-    $@"Menu Options:
+    $@"What do you want to do?
   1. Create New Goal
   2. List Goals
   3. Save Goals

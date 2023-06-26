@@ -3,7 +3,7 @@ using System;
 public class GoalMenu
 {
     private string _menu = 
-    $@"The options for Goals are:
+    $@"The types of Goals are:
   1. Simple Goal
   2. Eternal Goal
   3. Checklist Goal
