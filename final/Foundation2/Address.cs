@@ -2,26 +2,26 @@ using System;
 
 public class Address
 {
-    public string StreetAddress { get; }
-    public string City { get; }
-    public string StateProvince { get; }
-    public string Country { get; }
+    private string _streetAddress;
+    private string _city;
+    private string _stateProvince;
+    private string _country;
 
     public Address(string streetAddress, string city, string stateProvince, string country)
     {
-        StreetAddress = streetAddress;
-        City = city;
-        StateProvince = stateProvince;
-        Country = country;
+        _streetAddress = streetAddress;
+        _city = city;
+        _stateProvince = stateProvince;
+        _country = country;
     }
 
     public string GetAddressAsString()
     {
-        return $" {StreetAddress}\n {City}, {StateProvince}\n {Country}";
+        return $" {_streetAddress}\n {_city}, {_stateProvince}\n {_country}";
     }
 
     public bool IsInUSA()
     {
-        return Country == "USA";
+        return _country == "USA";
     }
 }
